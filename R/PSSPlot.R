@@ -10,7 +10,7 @@
 #' @keywords Events
 #' @export
 
-library(plyr)
+######################################################
 pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh){
   
   data$date.time<-strptime(paste(data$date, data$time, sep=" "), "%Y-%m-%d %H:%M:%S")

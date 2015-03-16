@@ -10,8 +10,6 @@
 
 
 ######################################################
-library(plyr)
-
 abundance.plot<-function(data, first.day, site, year){
   #setwd("/Users/doug/Desktop/Example Data/Counter/")
   #data <- read.csv("Braun Test 2014.csv", stringsAsFactors=FALSE)

@@ -12,9 +12,10 @@
 #' @keywords Events
 #' @export
 
+
+######################################################
 sunrise<-8
 sunset<-16
-library(plyr)
 pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
   
   data$hour<-strptime(data$time, format="%H:%M:%S")

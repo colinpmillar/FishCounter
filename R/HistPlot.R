@@ -8,8 +8,7 @@
 #' @keywords Histogram
 #' @export
 
-library(plyr)
-
+######################################################
 record.hist<-function(data, first.day, site, year){
   data$date.alt<-strptime(data$date, '%Y-%m-%d')
   data$jday<-data$date.alt$yday

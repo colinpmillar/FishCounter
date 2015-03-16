@@ -7,8 +7,8 @@
 #' @keywords Logie
 #' @export
 
+######################################################
 signal.data.cleanup<-function(path.to.folder, site.name, year){
-  library(plyr)
   
   #"\\.txt$" tells r that the files are text files.  
   signal.paths <- dir(path.to.folder, pattern = "\\.txt$", full.names = TRUE)
