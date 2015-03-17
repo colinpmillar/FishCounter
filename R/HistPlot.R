@@ -9,23 +9,31 @@
 #' @export
 
 ######################################################
+#setup parameters for the functions
+h<-10
+w<-10
+
+op <- list(mfrow=c(length(unique(d$channel)),1), 
+        mar=c(4,3,3,1), 
+        oma=c(2,2,1,0), 
+        las=1, 
+        xaxs="i", 
+        yaxs="i")
+
+######################################################
+
 record.hist<-function(data, first.day, site, year){
-  data$date.alt<-strptime(data$date, '%Y-%m-%d')
-  data$jday<-data$date.alt$yday
+  data$jday<-strptime(data$date, '%Y-%m-%d')$yday
   d1<-subset(data, jday>=first.day)
-  no.channels<-length(unique(d1$channel))#number of counter channels in dataset
-  h<-10; w<-10
-  site.name<-site
-  study.year<-year
+  d<-select(d1, channel, description, signal)
   
-  name.events<-"Events by Channel.pdf"
-  fig.name<-paste(getwd(), site.name, study.year, name.events, sep="")
-  quartz(h,w, type="pdf", bg="white", file=fig.name, dpi=150)
-  par(mfrow=c(no.channels,1), mar=c(4,3,3,1), oma=c(2,2,1,0), las=1, xaxs="i", yaxs="i")
+  fig.events<-paste(getwd(), site, year, "EventsbyChannel.pdf", sep="")
+  pdf(fig.events, h=h, w=w)
+  par(op)
   
-  no.events<-ddply(subset(d1, description=="E"), c("channel"), function(xx){
-    hist(xx$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", xx$channel[1], sep=""), col="grey60")
-    no.events<-length(xx$signal)
+  no.events<-ddply(filter(d, description=="E"), c("channel"), function(x){
+    hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
+    no.events<-length(x$signal)
     data.frame(no.events)
   })
   
@@ -33,14 +41,14 @@ record.hist<-function(data, first.day, site, year){
   dev.off()
   print(no.events)
   
-  name.up<-"Ups by Channel.pdf"
-  fig.name<-paste(getwd(), site.name, study.year, name.up, sep="")
-  quartz(h,w, type="pdf", bg="white", file=fig.name, dpi=150)
-  par(mfrow=c(no.channels,1), mar=c(4,3,3,1), oma=c(2,2,1,0), las=1, xaxs="i", yaxs="i")
+  name.up<-"UpsbyChannel.pdf"
+  fig.up<-paste(getwd(), site.name, study.year, name.up, sep="")
+  pdf(fig.up, h=h, w=w)
+  par(op)
   
-  no.up<-ddply(subset(d1, description=="U"), c("channel"), function(xx){
-    hist(xx$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", xx$channel[1], sep=""), col="grey60")
-    no.up<-length(xx$signal)
+  no.up<-ddply(filter(d, description=="U"), c("channel"), function(x){
+    hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
+    no.up<-length(x$signal)
     data.frame(no.up)
   })
   
@@ -48,16 +56,14 @@ record.hist<-function(data, first.day, site, year){
   dev.off()
   print(no.up)
   
-  name.down<-"Downs by Channel.pdf"
-  fig.name<-paste(getwd(), site.name, study.year, name.down, sep="")
-  quartz(h,w, type="pdf", bg="white", file=fig.name, dpi=150)
-  par(mfrow=c(no.channels,1), mar=c(4,3,3,1), oma=c(2,2,1,0), las=1, xaxs="i", yaxs="i")
+  name.down<-"DownsbyChannel.pdf"
+  fig.down<-paste(getwd(), site.name, study.year, name.down, sep="")
+  pdf(fig.down, h=h, w=w)
+  par(op)
   
-  
-  e<-subset(d1, description=="D" & channel==2)
-  no.down<-ddply(subset(d1, description=="U"), c("channel"), function(xx){
-    hist(xx$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", xx$channel[1], sep=""), col="grey60")
-    no.down<-length(xx$signal)
+  no.down<-ddply(filter(d, description=="D"), c("channel"), function(x){
+    hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
+    no.down<-length(x$signal)
     data.frame(no.down)
   })
   
