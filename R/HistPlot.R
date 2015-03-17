@@ -10,9 +10,9 @@
 
 ######################################################
 #setup parameters for the functions
+library(dplyr)
 h<-10
 w<-10
-
 op <- list(mfrow=c(length(unique(d$channel)),1), 
         mar=c(4,3,3,1), 
         oma=c(2,2,1,0), 
