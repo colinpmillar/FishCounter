@@ -10,6 +10,7 @@
 
 ######################################################
 #setup parameters for the functions
+library(plyr)
 library(dplyr)
 h<-10
 w<-10
