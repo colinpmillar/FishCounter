@@ -7,15 +7,11 @@
 #' @param year Year of counter operation.
 #' @param low.thresh is the counters lower threshold PSS value.
 #' @param up.thresh is the counters upper threshold PSS value.
-#' @param sunrise is the aproximate time of sunrise needs to be an integer value between 0 and 12
-#' @param sunset is the aproximate time of sunset needs to be an integer value 12 and 24
 #' @keywords Events
 #' @export
 
+pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
 
-pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
-  sunrise<-6
-  sunset<-18
   dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
   dataset$hour <- as.POSIXct(round(dataset$hour, "mins"))
   
@@ -30,10 +26,6 @@ pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, s
   box(col="grey60")
   mtext("Peak signal", side=2, line=2.5, outer=FALSE, cex=1.5)
   mtext("Time of Day", side=1, line=3, outer=FALSE, cex=1.5)
-  par(new=TRUE)
-  plot(1, xlim=c(0,24), ylim=c(60,120), col="#00000000", axes=FALSE)
-  rect(xleft=-1, ybottom=55, xright=sunrise, ytop=130, col="#00000025", border=NA)
-  rect(xleft=sunset, ybottom=55, xright=25, ytop=130, col="#00000025", border=NA)
   
   dev.off()
   
