@@ -16,7 +16,7 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh){
   data$date.time<-strptime(paste(data$date, data$time, sep=" "), "%Y-%m-%d %H:%M:%S")
   data$date.time <- as.POSIXct(round(data$date.time, "hours"))
   
-  pdf(paste(getwd(), "Peak Signal Size by Date and Time", site, year, name, ".pdf", sep=""), h=10, w=10)
+  pdf(paste(getwd(), "Peak Signal Size by Date and Time", site, year, name, ".pdf", sep=""), height=10, width=10)
   #quartz()
   par(mfrow=c(1,1), 
       mar=c(2,2,2,2), 
