@@ -1,14 +1,13 @@
 #' A function that plots events per hour of Logie counter data
 #'
 #' This function plots the number of events per hour channel and day for Logie counter data by channel
-#' @param dataset This is the dataset used to create the plots.
+#' @param data This is the dataset used to create the plots.
 #' @param first.day This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
 #' @keywords Events
 #' @export
 
-######################################################
 library(plyr)
 events.plot<-function(dataset, first.day, site, year){
   
@@ -23,7 +22,6 @@ events.plot<-function(dataset, first.day, site, year){
   events.hour.channel$date.time.alt<-as.POSIXct(strptime(events.hour.channel$date.time.alt, format="%Y-%m-%d %H"))
   r<-range(events.hour.channel$date.time.alt)
   
-  name<-"Events by Channel and Hour.pdf"
   fig.name<-paste(getwd(), site, year, "EventsbyChannelandHour.pdf", sep="")
   pdf(fig.name, height=10, width=10)
   

@@ -8,18 +8,6 @@
 #' @keywords Histogram
 #' @export
 
-######################################################
-#setup parameters for the functions
-
-#op <- list(mfrow=c(length(unique(d$channel)),1), 
-#        mar=c(4,3,3,1), 
-#       oma=c(2,2,1,0), 
-#        las=1, 
-#        xaxs="i", 
-#        yaxs="i")
-
-######################################################
-
 record.hist<-function(dataset, first.day, site, year){
   library(plyr)
   library(dplyr)
