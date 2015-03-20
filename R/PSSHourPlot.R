@@ -13,7 +13,6 @@
 #' @export
 
 
-######################################################
 pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
   sunrise<-6
   sunset<-18

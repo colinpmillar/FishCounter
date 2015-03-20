@@ -7,7 +7,6 @@
 #' @keywords Logie
 #' @export
 
-######################################################
 signal.data.cleanup<-function(path.to.folder, site.name, year){
   
   #"\\.txt$" tells r that the files are text files.  
@@ -50,8 +49,3 @@ signal.data.cleanup<-function(path.to.folder, site.name, year){
                        sep=""),
             row.names=FALSE)
 }
-
-#path.to.folder <- "/Users/doug/Desktop/Example Data/Graphics/"
-#site.name <- "Seton"
-#year <-2014
-#signal.data.cleanup(path.to.folder, site.name, year)

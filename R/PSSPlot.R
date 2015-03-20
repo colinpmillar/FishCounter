@@ -10,7 +10,6 @@
 #' @keywords Events
 #' @export
 
-######################################################
 pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
   
   dataset$date.time <- strptime(paste(dataset$date, dataset$time, sep=" "), "%Y-%m-%d %H:%M:%S")
@@ -44,16 +43,3 @@ pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
   
   dev.off()
 }
-
-#########
-# Check to see that the function works
-
-#setwd("/Users/doug/Desktop/Example Data/Counter/")
-#dataset<-read.csv("Scotland2014.csv")
-  
-#first.day<-220
-#site<-"NotSure"
-#year<-2200
-#low.thresh<-40
-#up.thresh<-127
-#pss.date.plot(dataset, first.day, site, year, low.thresh, up.thresh)

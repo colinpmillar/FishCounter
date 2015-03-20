@@ -73,10 +73,3 @@ record.hist<-function(dataset, first.day, site, year){
   dev.off()
   print(no.down)
 }
-
-#setwd("/Users/doug/Desktop/Example Data/Counter/")
-#dataset<-read.csv("Scotland2014.csv")
-#first.day<-220
-#site<-"NotSure"
-#year<-2200
-#record.hist(dataset, first.day, site, year)

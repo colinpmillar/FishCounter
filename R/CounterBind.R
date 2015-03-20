@@ -7,7 +7,6 @@
 #' @param year Year of counter operation.
 #' @export
 
-######################################################
 counter.data.cleanup<-function(path.to.folder, no.channels, site.name, year){
   
   counter.paths <- dir(path.to.folder, full.names = TRUE)
