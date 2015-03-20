@@ -1,7 +1,7 @@
 #' A function that plots events per hour of Logie counter data
 #'
 #' This function plots the number of events per hour channel and day for Logie counter data by channel
-#' @param data This is the dataset used to create the plots.
+#' @param dataset This is the dataset used to create the plots.
 #' @param first.day This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
@@ -10,11 +10,11 @@
 
 ######################################################
 library(plyr)
-events.plot<-function(data, first.day, site, year){
+events.plot<-function(dataset, first.day, site, year){
   
-  data$date.alt<-strptime(data$date, '%Y-%m-%d')
-  data$jday<-data$date.alt$yday
-  d1<-subset(data, jday>=first.day)
+  dataset$date.alt<-strptime(dataset$date, '%Y-%m-%d')
+  dataset$jday<-dataset$date.alt$yday
+  d1<-subset(dataset, jday>=first.day)
   
   events.hour1<-data.frame(subset(d1, description=="E"), no=1)
   events.hour1$date.time.alt<-as.character(as.POSIXct(strptime(paste(events.hour1$date, events.hour1$time,sep=" "), '%Y-%m-%d %H')))
@@ -47,8 +47,8 @@ events.plot<-function(data, first.day, site, year){
 # Check to see that the function works
 
 #setwd("/Users/doug/Desktop/Example Data/Counter/")
-#data<-read.csv("Scotland2014.csv")
+#dataset<-read.csv("Scotland2014.csv")
 #first.day<-220
 #site<-"NotSure"
 #year<-2200
-#events.plot(data, first.day, site, year)
+#events.plot(dataset, first.day, site, year)

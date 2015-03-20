@@ -1,7 +1,7 @@
 #' A function that plots the peak signal size (PSS) by hour of Logie counter data
 #'
 #' This function plots the PSS by hour for Logie counter data
-#' @param data This is the dataset used to create the plots.
+#' @param dataset This is the dataset used to create the plots.
 #' @param first.day This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
@@ -16,10 +16,10 @@
 ######################################################
 sunrise<-8
 sunset<-16
-pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
+pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
   
-  data$hour<-strptime(data$time, format="%H:%M:%S")
-  data$hour <- as.POSIXct(round(data$hour, "mins"))
+  dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
+  dataset$hour <- as.POSIXct(round(dataset$hour, "mins"))
   
   pdf(paste(getwd(), "Peak Signal Size by Hour", site, year, ".pdf", sep=""), height=10, width=10)
   #quartz()
@@ -27,8 +27,8 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh, sunr
       mar=c(2,2,2,2), 
       oma=c(2,2,2,2))
   
-  plot(signal~hour, data=subset(data, description=="U"), col="#00000010", pch=19, cex=1.5, axes=FALSE, las=1, xlab="", ylab="", ylim=c(0,130))
-  axis.POSIXct(1, data$hour, format="%H:%M", cex.axis=1, col="grey60")
+  plot(signal~hour, data=subset(dataset, description=="U"), col="#00000010", pch=19, cex=1.5, axes=FALSE, las=1, xlab="", ylab="", ylim=c(0,130))
+  axis.POSIXct(1, dataset$hour, format="%H:%M", cex.axis=1, col="grey60")
   axis(2, las=1, col="grey60")
   box(col="grey60")
   mtext("Peak signal", side=2, line=2.5, outer=FALSE, cex=1.5)
@@ -46,7 +46,7 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh, sunr
 # Check to see that the function works
 
 #setwd("/Users/doug/Desktop/Example Data/Counter/")
-#data<-read.csv("Scotland2014.csv")
+#dataset<-read.csv("Scotland2014.csv")
 
 #first.day<-220
 #site<-"NotSure"
@@ -56,4 +56,4 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh, sunr
 #sunrise<-8
 #sunset<-16
 
-#pss.date.plot(data, first.day, site, year, low.thresh, up.thresh, sunrise, sunset)
+#pss.date.plot(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset)

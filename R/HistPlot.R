@@ -1,7 +1,7 @@
 #' A function that plots histograms of Logie counter data
 #'
 #' This function plots historgrams of up, down and event counts for Logie counter data by channel
-#' @param data This is the dataset used to create the histograms.
+#' @param dataset This is the dataset used to create the histograms.
 #' @param first.day This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
@@ -20,11 +20,11 @@
 
 ######################################################
 
-record.hist<-function(data, first.day, site, year){
+record.hist<-function(dataset, first.day, site, year){
   library(plyr)
   library(dplyr)
-  data$jday<-strptime(data$date, '%Y-%m-%d')$yday
-  d1<-subset(data, jday>=first.day)
+  dataset$jday<-strptime(dataset$date, '%Y-%m-%d')$yday
+  d1<-subset(dataset, jday>=first.day)
   d<-select(d1, channel, description, signal)
   
   fig.events<-paste(getwd(), site, year, "EventsbyChannel.pdf", sep="")
@@ -87,9 +87,9 @@ record.hist<-function(data, first.day, site, year){
 }
 
 #setwd("/Users/doug/Desktop/Example Data/Counter/")
-#data<-read.csv("Scotland2014.csv")
+#dataset<-read.csv("Scotland2014.csv")
 #first.day<-220
 #site<-"NotSure"
 #year<-2200
 
-record.hist(data, first.day, site, year)
+record.hist(dataset, first.day, site, year)
