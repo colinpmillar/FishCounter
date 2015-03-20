@@ -8,9 +8,9 @@
 #' @keywords Events
 #' @export
 
-library(plyr)
+
 events.plot<-function(dataset, first.day, site, year){
-  
+  library(plyr)  
   dataset$date.alt<-strptime(dataset$date, '%Y-%m-%d')
   dataset$jday<-dataset$date.alt$yday
   d1<-subset(dataset, jday>=first.day)
