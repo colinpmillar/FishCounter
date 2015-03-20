@@ -10,8 +10,7 @@
 
 ######################################################
 #setup parameters for the functions
-library(plyr)
-library(dplyr)
+
 #op <- list(mfrow=c(length(unique(d$channel)),1), 
 #        mar=c(4,3,3,1), 
 #       oma=c(2,2,1,0), 
@@ -22,6 +21,8 @@ library(dplyr)
 ######################################################
 
 record.hist<-function(data, first.day, site, year){
+  library(plyr)
+  library(dplyr)
   data$jday<-strptime(data$date, '%Y-%m-%d')$yday
   d1<-subset(data, jday>=first.day)
   d<-select(d1, channel, description, signal)
