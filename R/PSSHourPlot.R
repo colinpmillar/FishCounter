@@ -8,19 +8,19 @@
 #' @param low.thresh is the counters lower threshold PSS value.
 #' @param up.thresh is the counters upper threshold PSS value.
 #' @param sunrise is the aproximate time of sunrise needs to be an integer value between 0 and 12
-#' @param sunset is the aproximate time of sunrise needs to be an integer value 12 and 24
+#' @param sunset is the aproximate time of sunset needs to be an integer value 12 and 24
 #' @keywords Events
 #' @export
 
 
 ######################################################
 pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
-  
+  sunrise<-6
+  sunset<-18
   dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
   dataset$hour <- as.POSIXct(round(dataset$hour, "mins"))
   
   pdf(paste(getwd(), "Peak Signal Size by Hour", site, year, ".pdf", sep=""), height=10, width=10)
-  #quartz()
   par(mfrow=c(1,1), 
       mar=c(2,2,2,2), 
       oma=c(2,2,2,2))
