@@ -45,10 +45,14 @@ record.hist<-function(data, first.day, site, year){
   dev.off()
   print(no.events)
   
-  name.up<-"UpsbyChannel.pdf"
-  fig.up<-paste(getwd(), site.name, study.year, name.up, sep="")
+  fig.up<-paste(getwd(), site, year, "UpsbyChannel.pdf", sep="")
   pdf(fig.up, height=10, weight=10)
-  par(op)
+  par(mfrow=c(length(unique(d$channel)),1), 
+      mar=c(4,3,3,1), 
+      oma=c(2,2,1,0), 
+      las=1, 
+      xaxs="i", 
+      yaxs="i")
   
   no.up<-ddply(filter(d, description=="U"), c("channel"), function(x){
     hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
@@ -61,9 +65,14 @@ record.hist<-function(data, first.day, site, year){
   print(no.up)
   
   name.down<-"DownsbyChannel.pdf"
-  fig.down<-paste(getwd(), site.name, study.year, name.down, sep="")
+  fig.down<-paste(getwd(), name, year, "DownsbyChannel.pdf", sep="")
   pdf(fig.down, height=10, width=10)
-  par(op)
+  par(mfrow=c(length(unique(d$channel)),1), 
+      mar=c(4,3,3,1), 
+      oma=c(2,2,1,0), 
+      las=1, 
+      xaxs="i", 
+      yaxs="i")
   
   no.down<-ddply(filter(d, description=="D"), c("channel"), function(x){
     hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
