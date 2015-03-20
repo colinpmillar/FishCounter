@@ -8,7 +8,6 @@
 #' @keywords Events
 #' @export
 
-
 events.plot<-function(dataset, first.day, site, year){
   library(plyr)  
   dataset$date.alt<-strptime(dataset$date, '%Y-%m-%d')

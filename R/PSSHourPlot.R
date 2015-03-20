@@ -14,8 +14,6 @@
 
 
 ######################################################
-sunrise<-8
-sunset<-16
 pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh, sunrise, sunset){
   
   dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
