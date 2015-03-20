@@ -11,12 +11,7 @@
 #' @export
 
 pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
-<<<<<<< HEAD
 
-=======
-  sunrise<-6
-  sunset<-18
->>>>>>> 0d912cc9ada73e9c1e93a47ec69c42a68a3710a6
   dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
   dataset$hour <- as.POSIXct(round(dataset$hour, "mins"))
   
