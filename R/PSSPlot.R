@@ -16,8 +16,7 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh){
   data$date.time<-strptime(paste(data$date, data$time, sep=" "), "%Y-%m-%d %H:%M:%S")
   data$date.time <- as.POSIXct(round(data$date.time, "hours"))
   
-  pdf(paste(getwd(), "Peak Signal Size by Date and Time", site, year, name, ".pdf", sep=""), height=10, width=10)
-  #quartz()
+  pdf(paste(getwd(), "Peak Signal Size by Date and Time", site, year, ".pdf", sep=""), height=10, width=10)       
   par(mfrow=c(1,1), 
       mar=c(2,2,2,2), 
       oma=c(2,2,2,2))
@@ -45,3 +44,16 @@ pss.date.plot<-function(data, first.day, site, year, low.thresh, up.thresh){
   
   dev.off()
 }
+
+#########
+# Check to see that the function works
+
+#setwd("/Users/doug/Desktop/Example Data/Counter/")
+#data<-read.csv("Scotland2014.csv")
+  
+#first.day<-220
+#site<-"NotSure"
+#year<-2200
+#low.thresh<-40
+#up.thresh<-127
+#pss.date.plot(data, first.day, site, year, low.thresh, up.thresh)

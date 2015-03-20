@@ -46,7 +46,7 @@ record.hist<-function(data, first.day, site, year){
   print(no.events)
   
   fig.up<-paste(getwd(), site, year, "UpsbyChannel.pdf", sep="")
-  pdf(fig.up, height=10, weight=10)
+  pdf(fig.up, height=10, width=10)
   par(mfrow=c(length(unique(d$channel)),1), 
       mar=c(4,3,3,1), 
       oma=c(2,2,1,0), 
@@ -65,7 +65,7 @@ record.hist<-function(data, first.day, site, year){
   print(no.up)
   
   name.down<-"DownsbyChannel.pdf"
-  fig.down<-paste(getwd(), name, year, "DownsbyChannel.pdf", sep="")
+  fig.down<-paste(getwd(), site, year, "DownsbyChannel.pdf", sep="")
   pdf(fig.down, height=10, width=10)
   par(mfrow=c(length(unique(d$channel)),1), 
       mar=c(4,3,3,1), 
@@ -84,3 +84,12 @@ record.hist<-function(data, first.day, site, year){
   dev.off()
   print(no.down)
 }
+
+setwd("/Users/doug/Desktop/Example Data/Counter/")
+data<-read.csv("Scotland2014.csv")
+
+first.day<-220
+site<-"NotSure"
+year<-2200
+
+record.hist(data, first.day, site, year)

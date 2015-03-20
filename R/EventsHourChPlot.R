@@ -9,6 +9,7 @@
 #' @export
 
 ######################################################
+library(plyr)
 events.plot<-function(data, first.day, site, year){
   
   data$date.alt<-strptime(data$date, '%Y-%m-%d')
@@ -22,11 +23,9 @@ events.plot<-function(data, first.day, site, year){
   events.hour.channel$date.time.alt<-as.POSIXct(strptime(events.hour.channel$date.time.alt, format="%Y-%m-%d %H"))
   r<-range(events.hour.channel$date.time.alt)
   
-  h<-10
-  w<-10
   name<-"Events by Channel and Hour.pdf"
-  fig.name<-paste(getwd(), site, year, name, sep="")
-  quartz(h,w, type="pdf", bg="white", file=fig.name, dpi=150)
+  fig.name<-paste(getwd(), site, year, "EventsbyChannelandHour.pdf", sep="")
+  pdf(fig.name, height=10, width=10)
   
   par(mfrow=c(length(unique(events.hour1$channel)),1), mar=c(4,2,1,2), oma=c(4,4,1,2), las=1)
   events.hour.ch<-ddply(events.hour.channel, c("channel"), function(xx){
@@ -43,3 +42,13 @@ events.plot<-function(data, first.day, site, year){
   print(events.hour.ch)
   dev.off()
 }
+
+#########
+# Check to see that the function works
+
+#setwd("/Users/doug/Desktop/Example Data/Counter/")
+#data<-read.csv("Scotland2014.csv")
+#first.day<-220
+#site<-"NotSure"
+#year<-2200
+#events.plot(data, first.day, site, year)
