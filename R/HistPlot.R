@@ -14,12 +14,12 @@ library(plyr)
 library(dplyr)
 h<-10
 w<-10
-op <- list(mfrow=c(length(unique(d$channel)),1), 
-        mar=c(4,3,3,1), 
-        oma=c(2,2,1,0), 
-        las=1, 
-        xaxs="i", 
-        yaxs="i")
+#op <- list(mfrow=c(length(unique(d$channel)),1), 
+#        mar=c(4,3,3,1), 
+#       oma=c(2,2,1,0), 
+#        las=1, 
+#        xaxs="i", 
+#        yaxs="i")
 
 ######################################################
 
@@ -30,7 +30,12 @@ record.hist<-function(data, first.day, site, year){
   
   fig.events<-paste(getwd(), site, year, "EventsbyChannel.pdf", sep="")
   pdf(fig.events, h=h, w=w)
-  par(op)
+  par(mfrow=c(length(unique(d$channel)),1), 
+      mar=c(4,3,3,1), 
+      oma=c(2,2,1,0), 
+      las=1, 
+      xaxs="i", 
+      yaxs="i")
   
   no.events<-ddply(filter(d, description=="E"), c("channel"), function(x){
     hist(x$signal, breaks=15, xlim=c(0, 130), main="", ylab="", xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
