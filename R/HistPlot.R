@@ -85,11 +85,10 @@ record.hist<-function(data, first.day, site, year){
   print(no.down)
 }
 
-setwd("/Users/doug/Desktop/Example Data/Counter/")
-data<-read.csv("Scotland2014.csv")
-
-first.day<-220
-site<-"NotSure"
-year<-2200
+#setwd("/Users/doug/Desktop/Example Data/Counter/")
+#data<-read.csv("Scotland2014.csv")
+#first.day<-220
+#site<-"NotSure"
+#year<-2200
 
 record.hist(data, first.day, site, year)
