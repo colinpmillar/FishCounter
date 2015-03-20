@@ -10,7 +10,7 @@
 #' @keywords Events
 #' @export
 
-pss.date.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
+pss.hour.plot<-function(dataset, first.day, site, year, low.thresh, up.thresh){
 
   dataset$hour<-strptime(dataset$time, format="%H:%M:%S")
   dataset$hour <- as.POSIXct(round(dataset$hour, "mins"))

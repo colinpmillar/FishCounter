@@ -3,5 +3,6 @@
 export(counter.data.cleanup)
 export(events.plot)
 export(pss.date.plot)
+export(pss.hour.plot)
 export(record.hist)
 export(signal.data.cleanup)
