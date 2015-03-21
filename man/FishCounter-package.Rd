@@ -3,12 +3,10 @@
 \alias{FishCounter}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
+FishCounter: Fish counter data summary and exploration
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+The FishCounter package is a set of tools that combine, summarize and explore fish counter data from the Logie resistivity coutner. It simplifies common tasks such as combining data from multiple downloads, exploring plots of peak signal sizes, and summarizes the number of events, ups and down counts graphically.
 }
 \details{
 \tabular{ll}{
@@ -16,27 +14,24 @@ Package: \tab FishCounter\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2015-03-16\cr
-License: \tab What license is it under?\cr
+License: \tab MIT \cr
 }
-~~ An overview of how to use the package, including the most important ~~
-~~ functions ~~
+SignalBind and CounterBind are functions that bind signal data or counter data, respecitively. Individual data files need to be placed in the same folder. They are imported, cleaned and then bound together to produce a single master dataset that can be used for plotting and summarizing data. HistPlot, EventsHourChPlot, PSSPlot, PSSHourPlot are used to explore errors and patterns in the data. Some of the functions also print out data summaries.
 }
 \author{
-Who wrote it
-
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+Douglas Braun
+dbraun@instream.net
 }
 \references{
-~~ Literature or other references for background information ~~
+Fish Counter Network Final Report url:
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in ~~
-~~ the R documentation directory ~~
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
+Aquantic website
+InStream website
+Other packages that might be built for other counter data - Vaki tweed example
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
-~~ simple examples of the most important functions ~~
+None yet
 }
