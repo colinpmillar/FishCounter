@@ -2,7 +2,7 @@
 #' A function to bind and process Logie signal data
 #' This function allows you to bind together mulitple signal data files, remove errors and produce a master datafile.
 #' @param path.to.folder This is the file path for the folder that contains all data files for processing.
-#' @param site.name Name of the study river.
+#' @param site Name of the study river.
 #' @param year Year of counter operation.
 #' @keywords Logie
 #' @export

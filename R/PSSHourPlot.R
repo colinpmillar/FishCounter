@@ -2,11 +2,11 @@
 #'
 #' This function plots the PSS by hour for Logie counter data
 #' @param dataset This is the dataset used to create the plots.
-#' @param first.day This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
+#' @param day_one This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
-#' @param low.thresh is the counters lower threshold PSS value.
-#' @param up.thresh is the counters upper threshold PSS value.
+#' @param low_thresh is the counters lower threshold PSS value.
+#' @param up_thresh is the counters upper threshold PSS value.
 #' @keywords Events
 #' @export
 

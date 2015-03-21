@@ -4,7 +4,7 @@
 #' This function allows you to bind together mulitple counter data files, remove errors and produce a master datafile.
 #' @param path.to.folder This is the file path for the folder that contains all data files for processing.
 #' @param no.channels This is the number of counter channels that were operated.
-#' @param site.name Name of the study river.
+#' @param site Name of the study river.
 #' @param year Year of counter operation.
 #' @export
 
