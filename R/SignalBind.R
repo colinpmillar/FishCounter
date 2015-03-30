@@ -1,13 +1,16 @@
-#' Signal Clean Up Draft
+#' bind_signal_data
 #' A function to bind and process Logie signal data
 #' This function allows you to bind together mulitple signal data files, remove errors and produce a master datafile.
 #' @param path.to.folder This is the file path for the folder that contains all data files for processing.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
+#' @param max.signal The maximum signal size.
 #' @keywords Logie
 #' @export
 
-bind_signal_data<-function(path.to.folder, site, year){
+bind_signal_data<-function(path.to.folder, site, year, max.signal){
+  library(plyr)
+  library(dplyr)
   
   #"\\.txt$" tells r that the files are text files.  
   signal.paths <- dir(path.to.folder, pattern = "\\.txt$", full.names = TRUE)
@@ -49,7 +52,9 @@ bind_signal_data<-function(path.to.folder, site, year){
                            "description"=signal.data3$description,
                            "signal"=as.numeric(signal.data3$signal))
   
-  signal.data <- signal.data4[!duplicated(signal.data4[, c(2, 6)]), ]
+  signal.data5 <- signal.data4[!duplicated(signal.data4[, c(2, 6)]), ]
+  
+  signal.data <- subset(signal.data5, signal <= max.signal)
   
   signal.data <- signal.data[order(signal.data$time), ]
   

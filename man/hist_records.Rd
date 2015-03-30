@@ -9,11 +9,11 @@ hist_records(dataset, day_one, site, year)
 \arguments{
 \item{dataset}{This is the dataset used to create the histograms.}
 
+\item{day_one}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
+
 \item{site}{Name of the study river.}
 
 \item{year}{Year of counter operation.}
-
-\item{first.day}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
 }
 \description{
 This function plots historgrams of up, down and event counts for Logie counter data by channel

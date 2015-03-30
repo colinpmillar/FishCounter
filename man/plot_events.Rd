@@ -7,13 +7,13 @@
 plot_events(dataset, day_one, site, year)
 }
 \arguments{
+\item{day_one}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
+
 \item{site}{Name of the study river.}
 
 \item{year}{Year of counter operation.}
 
 \item{data}{This is the dataset used to create the plots.}
-
-\item{first.day}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
 }
 \value{
 Generates three .pdf files with histograms of peak signal size for up counts, down counts and events for each counter channel.

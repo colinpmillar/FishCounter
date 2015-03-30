@@ -1,4 +1,4 @@
-#' counter.data.cleanup
+#' bind_counter_data
 #' bind individual data files, clean up data, and return a master data file.
 #' A function to bind and process Logie counter data
 #' This function allows you to bind together mulitple counter data files, remove errors and produce a master datafile.
@@ -6,9 +6,13 @@
 #' @param no.channels This is the number of counter channels that were operated.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
+#' @param max.signal The maximum signal size.
 #' @export
 
-bind_counter_data <- function(path.to.folder, no.channels, site, year) {
+bind_counter_data <- function(path.to.folder, no.channels, site, year, max.signal) {
+  
+  library(plyr)
+  library(dplyr)
   
   if(missing(site)) {
     site <- ""
@@ -65,7 +69,10 @@ bind_counter_data <- function(path.to.folder, no.channels, site, year) {
   counter.data6 <- counter.data5[!duplicated(counter.data5[, c(2, 6)]), ]
   # removes any duplicate data
   
-  counter.data <- droplevels(counter.data6)
+  counter.data7 <- subset(counter.data6, signal <= max.signal)
+  # gets rid of levels that have been subseted out. 
+  
+  counter.data <- droplevels(counter.data7)
   # gets rid of levels that have been subseted out. 
   
   counter.data <- counter.data[order(counter.data$date.time), ]

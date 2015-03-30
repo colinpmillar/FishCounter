@@ -3,7 +3,8 @@ Type: Package
 Title: FishCounter: Fish counter data summary and exploration
 Version: 1.0
 Date: 2015-03-16
-Author: Douglas Braun
+Author: Douglas Braun <dbraun@instream.net>
 Maintainer: Douglas Braun <dbraun@instream.net>
-Description: The FishCounter package is a set of tools that combine, summarize and explore fish counter data from the Logie resistivity coutner. It simplifies common tasks such as combining data from multiple downloads, exploring plots of peak signal sizes, and summarizes the number of events, ups and down counts graphically.
-License: MIT + file LICENSE
+Description: The FishCounter package is a set of tools that combine, summarize and explore     fish counter data from the Logie resistivity coutner. It simplifies common tasks such      as combining data from multiple downloads, exploring plots of peak signal sizes, and       summarizes the number of events, ups and down counts graphically.
+License: MIT
+Imports: dplyr,	plyr

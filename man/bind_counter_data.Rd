@@ -2,24 +2,26 @@
 % Please edit documentation in R/CounterBind.R
 \name{bind_counter_data}
 \alias{bind_counter_data}
-\title{counter.data.cleanup
+\title{bind_counter_data
 bind individual data files, clean up data, and return a master data file.
 A function to bind and process Logie counter data
 This function allows you to bind together mulitple counter data files, remove errors and produce a master datafile.}
 \usage{
-bind_counter_data(path.to.folder, no.channels, site, year)
+bind_counter_data(path.to.folder, no.channels, site, year, max.signal)
 }
 \arguments{
 \item{path.to.folder}{This is the file path for the folder that contains all data files for processing.}
 
 \item{no.channels}{This is the number of counter channels that were operated.}
 
+\item{site}{Name of the study river.}
+
 \item{year}{Year of counter operation.}
 
-\item{site.name}{Name of the study river.}
+\item{max.signal}{The maximum signal size.}
 }
 \description{
-counter.data.cleanup
+bind_counter_data
 bind individual data files, clean up data, and return a master data file.
 A function to bind and process Logie counter data
 This function allows you to bind together mulitple counter data files, remove errors and produce a master datafile.

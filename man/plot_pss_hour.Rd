@@ -9,15 +9,15 @@ plot_pss_hour(dataset, day_one, site, year, low_thresh, up_thresh)
 \arguments{
 \item{dataset}{This is the dataset used to create the plots.}
 
+\item{day_one}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
+
 \item{site}{Name of the study river.}
 
 \item{year}{Year of counter operation.}
 
-\item{first.day}{This is the first day of the dataset you want to use. This parameter needs to be specified in julian day format.}
+\item{low_thresh}{is the counters lower threshold PSS value.}
 
-\item{low.thresh}{is the counters lower threshold PSS value.}
-
-\item{up.thresh}{is the counters upper threshold PSS value.}
+\item{up_thresh}{is the counters upper threshold PSS value.}
 }
 \description{
 This function plots the PSS by hour for Logie counter data
