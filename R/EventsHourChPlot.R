@@ -46,8 +46,8 @@ plot_events <- function(dataset, day_one, site, year) {
   pdf(fig.name, height=10, width=10)
   
   par(mfrow=c(length(unique(events.hour1$channel)), 1), 
-      mar=c(4, 2, 1, 2), 
-      oma=c(4, 4, 1, 2),
+      mar=c(4, 2, 0.5, 2), 
+      oma=c(2, 4, 0.5, 2),
       las=1,
       cex=1.5)
   
