@@ -23,7 +23,7 @@ hist_records <- function(dataset, day_one, site, year) {
   if(missing(day_one)) {
     day_one <- min(dataset$jday)
   }
-  d1 <- subset(dataset, jday >= day_one)
+  d1 <- filter(dataset, jday >= day_one)
   d <- select(d1, channel, description, signal)
   
   pdf(paste(getwd(), site, year, "EventsbyChannel.pdf", sep = ""),
