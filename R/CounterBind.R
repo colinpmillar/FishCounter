@@ -63,7 +63,7 @@ bind_counter_data <- function(path_to_folder, no_channels, site, year, max_signa
       "description"=counter.data3$description,
       "signal"=as.numeric(counter.data3$signal))
   
-  counter.data5 <- subset(counter.data4, channel <= (no.channels))
+  counter.data5 <- subset(counter.data4, channel <= (no_channels))
   # removes any errors in channel number
   
   counter.data6 <- counter.data5[!duplicated(counter.data5[, c(2, 6)]), ]
