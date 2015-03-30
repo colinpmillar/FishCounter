@@ -69,7 +69,7 @@ plot_events <- function(dataset, day_one, site, year) {
     
     axis(2, cex=1.5)
     
-    axis.POSIXct(1, at=seq(r[1], r[2], by="day"), format="%b %d", cex.axis=1)
+    axis.POSIXct(1, at=seq(r[1], r[2], by="day"), format="%b %d", cex.axis=0.9)
     
     box()
     
