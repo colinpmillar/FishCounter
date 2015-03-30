@@ -43,7 +43,8 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
   par(mfrow=c(1, 1), 
       mar=c(2, 2, 2, 2), 
-      oma=c(2, 2, 2, 2))
+      oma=c(2, 2, 2, 2),
+      cex=1.5)
   
   plot(signal ~ hour, data=subset(dataset, description=="U"),
        col="#00000010", pch=19, cex=1.5, axes=FALSE, las=1, 
@@ -55,8 +56,17 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
   box(col="grey60")
   
-  mtext("Peak signal", side=2, line=2.5, outer=FALSE, cex=1.5)
-  mtext("Time of Day", side=1, line=3, outer=FALSE, cex=1.5)
+  mtext("Peak signal", 
+        side=2, 
+        line=2.5, 
+        outer=FALSE, 
+        cex=1.5)
+  
+  mtext("Time of Day", 
+        side=1, 
+        line=3, 
+        outer=FALSE, 
+        cex=1.5)
   
   dev.off()
 }
