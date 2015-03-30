@@ -50,7 +50,6 @@ bind_counter_data <- function(path_to_folder, no_channels, site, year, max_signa
   counter.data2$jday <- date.alt$yday
   counter.data3 <- subset(counter.data2, jday != "NA")
   
-  #write.csv(counter.data3, '~/Dropbox/Sample Counter Data/test.csv')
   counter.data4 <- data.frame("file"=counter.data3$file, 
       "date.time"=as.character(as.POSIXlt(strptime(paste(counter.data3$date, 
                                                    counter.data3$time, sep="-"), 
