@@ -69,7 +69,7 @@ bind_counter_data <- function(path_to_folder, no_channels, site, year, max_signa
   counter.data6 <- counter.data5[!duplicated(counter.data5[, c(2, 6)]), ]
   # removes any duplicate data
   
-  counter.data7 <- subset(counter.data6, signal <= max.signal)
+  counter.data7 <- subset(counter.data6, signal <= max_signal)
   # gets rid of levels that have been subseted out. 
   
   counter.data <- droplevels(counter.data7)
