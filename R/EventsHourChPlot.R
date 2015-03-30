@@ -48,7 +48,8 @@ plot_events <- function(dataset, day_one, site, year) {
   par(mfrow=c(length(unique(events.hour1$channel)), 1), 
       mar=c(4, 2, 1, 2), 
       oma=c(4, 4, 1, 2),
-      las=1)
+      las=1,
+      cex=1.5)
   
   events.hour.ch <- ddply(events.hour.channel, c("channel"), function(xx) {
     
@@ -66,9 +67,9 @@ plot_events <- function(dataset, day_one, site, year) {
         col="red", 
         lty=2)
     
-    axis(2)
+    axis(2, cex=1.5)
     
-    axis.POSIXct(1, at=seq(r[1], r[2], by="day"), format="%b %d", cex.axis=1)
+    axis.POSIXct(1, at=seq(r[1], r[2], by="day"), format="%b %d", cex.axis=1.5)
     
     box()
     
@@ -82,14 +83,15 @@ plot_events <- function(dataset, day_one, site, year) {
         col="red", 
         line=-24, 
         at=1, 
-        las=1)
+        las=1,
+        cex=1.5)
   
   mtext("No. Events/hour", 
         side=2, 
         line=2, 
         outer=TRUE, 
         las=0, 
-        cex=1.25)
+        cex=1.5)
   
   print(events.hour.ch)
   
