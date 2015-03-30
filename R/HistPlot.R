@@ -33,7 +33,8 @@ hist_records <- function(dataset, day_one, site, year) {
       oma=c(2, 2, 1, 0), 
       las=1, 
       xaxs="i", 
-      yaxs="i")
+      yaxs="i",
+      cex=1.5)
   
   no.events <- ddply(filter(d, description=="E"), c("channel"), function(x) {
     hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
@@ -54,7 +55,8 @@ hist_records <- function(dataset, day_one, site, year) {
       oma=c(2, 2, 1, 0), 
       las=1, 
       xaxs="i", 
-      yaxs="i", cex=1.5)
+      yaxs="i", 
+      cex=1.5)
   
   no.up <- ddply(filter(d, description=="U"), c("channel"), function(x) {
     hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
@@ -76,7 +78,7 @@ hist_records <- function(dataset, day_one, site, year) {
       las=1, 
       xaxs="i", 
       yaxs="i",
-      cex=1.25)
+      cex=1.5)
   
   no.down <- ddply(filter(d, description=="D"), c("channel"), function(x) {
     hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
@@ -86,7 +88,11 @@ hist_records <- function(dataset, day_one, site, year) {
   }
   )
   
-  mtext("Frequency of DOWN signal sizes", side=2, outer=TRUE, las=0)
+  mtext("Frequency of DOWN signal sizes", 
+        side=2, 
+        outer=TRUE, 
+        las=0,
+        cex=1.5)
   dev.off()
   print(no.down)
 }
