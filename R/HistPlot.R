@@ -54,7 +54,7 @@ hist_records <- function(dataset, day_one, site, year) {
       oma=c(2, 2, 1, 0), 
       las=1, 
       xaxs="i", 
-      yaxs="i")
+      yaxs="i", cex=1.5)
   
   no.up <- ddply(filter(d, description=="U"), c("channel"), function(x) {
     hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
@@ -75,7 +75,8 @@ hist_records <- function(dataset, day_one, site, year) {
       oma=c(2, 2, 1, 0), 
       las=1, 
       xaxs="i", 
-      yaxs="i")
+      yaxs="i",
+      cex=1.25)
   
   no.down <- ddply(filter(d, description=="D"), c("channel"), function(x) {
     hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
