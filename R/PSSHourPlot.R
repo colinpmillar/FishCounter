@@ -38,7 +38,7 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
   dataset$hour     <- strptime(dataset$time, format="%H:%M:%S")
   dataset$hour     <- as.POSIXct(round(dataset$hour, "mins"))
   
-  pdf(paste(getwd(), "Peak Signal Size by Hour", site, year, ".pdf", sep=""), 
+  pdf(paste(getwd(), "PeakSignalSizebyHour", site, year, ".pdf", sep=""), 
       height=10, width=10)
   
   par(mfrow=c(1, 1), 

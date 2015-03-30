@@ -40,7 +40,7 @@ plot_pss_date <- function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
   dataset$date.time <- as.POSIXct(round(dataset$date.time, "hours"))
   
-  pdf(paste(getwd(), "Peak Signal Size by Date and Time", site, year, ".pdf", 
+  pdf(paste(getwd(), "PeakSignalSizebyDateandTime", site, year, ".pdf", 
             sep=""), height=10, width=10)       
   
   par(mfrow=c(1, 1), 

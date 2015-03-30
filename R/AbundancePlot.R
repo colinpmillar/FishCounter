@@ -42,7 +42,7 @@ plot_abundance <- function(dataset, day_one, site, year) {
               daily.count = sum(count), 
               count = max(cummulative.count))
   
-  pdf(paste(getwd(), "Abundance by Day", site, year, ".pdf", 
+  pdf(paste(getwd(), "AbundancebyDay", site, year, ".pdf", 
             sep = ""), height = 10, width = 10)       
   par(mfrow = c(2, 1), 
       mar = c(0, 2, 0, 2), 
