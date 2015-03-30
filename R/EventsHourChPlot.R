@@ -77,7 +77,7 @@ plot_events <- function(dataset, day_one, site, year) {
   }
   )
   
-  mtext("mean events/hour for all channels", 
+  mtext("mean events per hour for all channels", 
         side=2, 
         outer=TRUE, 
         col="red", 
