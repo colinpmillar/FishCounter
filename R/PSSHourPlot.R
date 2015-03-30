@@ -32,7 +32,7 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
     day_one <- min(dataset$jday)
   }
   
-  dataset          <- filter(dataset, jday >= day_one)
+  dataset          <- subset(dataset, jday >= day_one)
   dataset$jday     <- NULL
   dataset$date.alt <- NULL
   dataset$hour     <- strptime(dataset$time, format = "%H:%M:%S")
@@ -47,7 +47,7 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
       oma = c(2, 2, 2, 2),
       cex = 1.5)
   
-  plot(signal ~ hour, data = filter(dataset, description == "U"),
+  plot(signal ~ hour, data = subset(dataset, description == "U"),
        col = "#00000010", pch = 19, cex = 1.5, axes = FALSE, las = 1, 
        xlab = "", ylab = "", ylim = c(low_thresh, up_thresh))
   
