@@ -26,82 +26,86 @@ hist_records <- function(dataset, day_one, site, year) {
   d1 <- subset(dataset, jday >= day_one)
   d <- select(d1, channel, description, signal)
   
-  fig.events <- paste(getwd(), site, year, "EventsbyChannel.pdf", sep="")
-  pdf(fig.events, height=10, width=10)
-  par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 1, 1), 
-      oma=c(2, 2, 0.5, 0), 
-      las=1, 
-      xaxs="i", 
-      yaxs="i",
-      cex=1.5)
+  pdf(paste(getwd(), site, year, "EventsbyChannel.pdf", sep = ""),
+      height = 10,
+      width = 10)
+  par(mfrow = c(length(unique(d$channel)), 1), 
+      mar = c(4, 3, 1, 1), 
+      oma = c(2, 2, 0.5, 0), 
+      las = 1, 
+      xaxs = "i", 
+      yaxs = "i",
+      cex = 1.5)
   
-  no.events <- ddply(filter(d, description=="E"), c("channel"), function(x) {
-    hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
-         xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
-    no.events<-length(x$signal)
+  no.events <- ddply(filter(d, description == "E"), c("channel"), function(x) {
+    hist(x$signal, breaks = seq(0, 130, 5), xlim = c(0, 130), main = "", ylab = "", 
+         xlab = paste("Channel ", x$channel[1], sep = ""), col = "grey60")
+    no.events <- length(x$signal)
     data.frame(no.events)
   }
   )
   
   mtext("Frequency of EVENT signal sizes", 
-        side=2, 
-        outer=TRUE, 
-        las=0,
-        cex=1.5)
+        side = 2, 
+        outer = TRUE, 
+        las = 0,
+        cex = 1.5)
   
   dev.off()
+  
   print(no.events)
   
-  fig.up <- paste(getwd(), site, year, "UpsbyChannel.pdf", sep="")
-  pdf(fig.up, height=10, width=10)
-  par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 1, 1), 
-      oma=c(2, 2, 0.5, 0), 
-      las=1, 
-      xaxs="i", 
-      yaxs="i", 
-      cex=1.5)
+  pdf(paste(getwd(), site, year, "UpsbyChannel.pdf", sep = ""),
+      height = 10,
+      width = 10)
+  par(mfrow = c(length(unique(d$channel)), 1), 
+      mar = c(4, 3, 1, 1), 
+      oma = c(2, 2, 0.5, 0), 
+      las = 1, 
+      xaxs = "i", 
+      yaxs = "i", 
+      cex = 1.5)
   
-  no.up <- ddply(filter(d, description=="U"), c("channel"), function(x) {
-    hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
-         xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
+  no.up <- ddply(filter(d, description == "U"), c("channel"), function(x) {
+    hist(x$signal, breaks = seq(0, 130, 5), xlim = c(0, 130), main = "", ylab = "", 
+         xlab = paste("Channel ", x$channel[1], sep = ""), col = "grey60")
     no.up <- length(x$signal)
     data.frame(no.up)
   }
   )
   
   mtext("Frequency of UP signal sizes", 
-        side=2, 
-        outer=TRUE, 
-        las=0,
-        cex=1.5)
+        side = 2, 
+        outer = TRUE, 
+        las = 0,
+        cex = 1.5)
   dev.off()
   print(no.up)
   
-  fig.down <- paste(getwd(), site, year, "DownsbyChannel.pdf", sep="")
-  pdf(fig.down, height=10, width=10)
-  par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 1, 1), 
-      oma=c(2, 2, 0.5, 0), 
-      las=1, 
-      xaxs="i", 
-      yaxs="i",
-      cex=1.5)
+  pdf(paste(getwd(), site, year, "DownsbyChannel.pdf", sep = ""),
+      height = 10, 
+      width = 10)
+  par(mfrow = c(length(unique(d$channel)), 1), 
+      mar = c(4, 3, 1, 1), 
+      oma = c(2, 2, 0.5, 0), 
+      las = 1, 
+      xaxs = "i", 
+      yaxs = "i",
+      cex = 1.5)
   
-  no.down <- ddply(filter(d, description=="D"), c("channel"), function(x) {
-    hist(x$signal, breaks=seq(0,130,5), xlim=c(0, 130), main="", ylab="", 
-         xlab=paste("Channel ", x$channel[1], sep=""), col="grey60")
+  no.down <- ddply(filter(d, description == "D"), c("channel"), function(x) {
+    hist(x$signal, breaks = seq(0, 130, 5), xlim = c(0, 130), main = "", ylab = "", 
+         xlab = paste("Channel ", x$channel[1], sep = ""), col = "grey60")
     no.down <- length(x$signal)
     data.frame(no.down)
   }
   )
   
   mtext("Frequency of DOWN signal sizes", 
-        side=2, 
-        outer=TRUE, 
-        las=0,
-        cex=1.5)
+        side = 2, 
+        outer = TRUE, 
+        las = 0,
+        cex = 1.5)
   dev.off()
   print(no.down)
 }
