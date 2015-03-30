@@ -13,10 +13,10 @@
 plot_pss_date <- function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
   if(missing(low_thresh)) {
-    low.thresh <- 0
+    low_thresh <- 0
   }
   if(missing(up_thresh)) {
-    up.thresh <- 130
+    up_thresh <- 130
   }
   if(missing(site)) {
     site <- ""
@@ -66,7 +66,7 @@ plot_pss_date <- function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
   plot(mean.signal ~ date.alt, data=mean.signal, typ="p", col="red", pch=19, 
        cex=1.5, axes=FALSE, las=1, xlab="", ylab="", 
-       ylim=c(low.thresh, up.thresh))
+       ylim=c(low_thresh, up_thresh))
   
   r <- as.POSIXct(range(mean.signal$date.alt))
   
