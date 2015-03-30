@@ -32,41 +32,42 @@ plot_pss_hour<-function(dataset, day_one, site, year, low_thresh, up_thresh) {
     day_one <- min(dataset$jday)
   }
   
-  dataset          <- subset(dataset, jday >= day_one)
+  dataset          <- filter(dataset, jday >= day_one)
   dataset$jday     <- NULL
   dataset$date.alt <- NULL
-  dataset$hour     <- strptime(dataset$time, format="%H:%M:%S")
+  dataset$hour     <- strptime(dataset$time, format = "%H:%M:%S")
   dataset$hour     <- as.POSIXct(round(dataset$hour, "mins"))
   
-  pdf(paste(getwd(), "PeakSignalSizebyHour", site, year, ".pdf", sep=""), 
-      height=10, width=10)
+  pdf(paste(getwd(), "PeakSignalSizebyHour", site, year, ".pdf", sep = ""), 
+      height = 10,
+      width = 10)
   
-  par(mfrow=c(1, 1), 
-      mar=c(2, 2, 2, 2), 
-      oma=c(2, 2, 2, 2),
-      cex=1.5)
+  par(mfrow = c(1, 1), 
+      mar = c(2, 2, 2, 2), 
+      oma = c(2, 2, 2, 2),
+      cex = 1.5)
   
-  plot(signal ~ hour, data=subset(dataset, description=="U"),
-       col="#00000010", pch=19, cex=1.5, axes=FALSE, las=1, 
-       xlab="", ylab="", ylim=c(low_thresh,up_thresh))
+  plot(signal ~ hour, data = filter(dataset, description == "U"),
+       col = "#00000010", pch = 19, cex = 1.5, axes = FALSE, las = 1, 
+       xlab = "", ylab = "", ylim = c(low_thresh, up_thresh))
   
-  axis.POSIXct(1, dataset$hour, format="%H:%M", cex.axis=1, col="grey60")
+  axis.POSIXct(1, dataset$hour, format = "%H:%M", cex.axis = 1, col = "grey60")
   
-  axis(2, las=1, col="grey60")
+  axis(2, las = 1, col = "grey60")
   
-  box(col="grey60")
+  box(col = "grey60")
   
   mtext("Peak signal", 
-        side=2, 
-        line=2.5, 
-        outer=FALSE, 
-        cex=1.5)
+        side = 2, 
+        line = 2.5, 
+        outer = FALSE, 
+        cex = 1.5)
   
   mtext("Time of Day", 
-        side=1, 
-        line=3, 
-        outer=FALSE, 
-        cex=1.5)
+        side = 1, 
+        line = 3, 
+        outer = FALSE, 
+        cex = 1.5)
   
   dev.off()
 }
