@@ -29,8 +29,8 @@ hist_records <- function(dataset, day_one, site, year) {
   fig.events <- paste(getwd(), site, year, "EventsbyChannel.pdf", sep="")
   pdf(fig.events, height=10, width=10)
   par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 3, 1), 
-      oma=c(2, 2, 1, 0), 
+      mar=c(4, 3, 1, 1), 
+      oma=c(2, 2, 0.5, 0), 
       las=1, 
       xaxs="i", 
       yaxs="i",
@@ -44,15 +44,20 @@ hist_records <- function(dataset, day_one, site, year) {
   }
   )
   
-  mtext("Frequency of EVENT signal sizes", side=2, outer=TRUE, las=0)
+  mtext("Frequency of EVENT signal sizes", 
+        side=2, 
+        outer=TRUE, 
+        las=0,
+        cex=1.5)
+  
   dev.off()
   print(no.events)
   
   fig.up <- paste(getwd(), site, year, "UpsbyChannel.pdf", sep="")
   pdf(fig.up, height=10, width=10)
   par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 3, 1), 
-      oma=c(2, 2, 1, 0), 
+      mar=c(4, 3, 1, 1), 
+      oma=c(2, 2, 0.5, 0), 
       las=1, 
       xaxs="i", 
       yaxs="i", 
@@ -66,15 +71,19 @@ hist_records <- function(dataset, day_one, site, year) {
   }
   )
   
-  mtext("Frequency of UP signal sizes", side=2, outer=TRUE, las=0)
+  mtext("Frequency of UP signal sizes", 
+        side=2, 
+        outer=TRUE, 
+        las=0,
+        cex=1.5)
   dev.off()
   print(no.up)
   
   fig.down <- paste(getwd(), site, year, "DownsbyChannel.pdf", sep="")
   pdf(fig.down, height=10, width=10)
   par(mfrow=c(length(unique(d$channel)), 1), 
-      mar=c(4, 3, 3, 1), 
-      oma=c(2, 2, 1, 0), 
+      mar=c(4, 3, 1, 1), 
+      oma=c(2, 2, 0.5, 0), 
       las=1, 
       xaxs="i", 
       yaxs="i",
