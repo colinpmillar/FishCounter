@@ -2,14 +2,14 @@
 #' bind individual data files, clean up data, and return a master data file.
 #' A function to bind and process Logie counter data
 #' This function allows you to bind together mulitple counter data files, remove errors and produce a master datafile.
-#' @param path.to.folder This is the file path for the folder that contains all data files for processing.
-#' @param no.channels This is the number of counter channels that were operated.
+#' @param path_to_folder This is the file path for the folder that contains all data files for processing.
+#' @param no_channels This is the number of counter channels that were operated.
 #' @param site Name of the study river.
 #' @param year Year of counter operation.
-#' @param max.signal The maximum signal size.
+#' @param max_signal The maximum signal size.
 #' @export
 
-bind_counter_data <- function(path.to.folder, no.channels, site, year, max.signal) {
+bind_counter_data <- function(path_to_folder, no_channels, site, year, max_signal) {
   
   library(plyr)
   library(dplyr)
@@ -21,7 +21,7 @@ bind_counter_data <- function(path.to.folder, no.channels, site, year, max.signa
     year <- ""
   }
   
-  counter.paths <- dir(path.to.folder, full.names = TRUE)
+  counter.paths <- dir(path_to_folder, full.names = TRUE)
   names(counter.paths) <- basename(counter.paths)
   
   counter.data1 <- ldply(counter.paths, 
@@ -80,7 +80,7 @@ bind_counter_data <- function(path.to.folder, no.channels, site, year, max.signa
   # The row names, column names and quotes must be removed.
   
   write.csv(x=counter.data[, -2], 
-            file=paste(path.to.folder,
+            file=paste(path_to_folder,
                        site, 
                        year,
                        ".csv", 

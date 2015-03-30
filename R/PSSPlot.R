@@ -10,12 +10,12 @@
 #' @keywords Events
 #' @export
 
-plot_pss_date <- function(dataset, day_one, site, year, low.thresh, up.thresh) {
+plot_pss_date <- function(dataset, day_one, site, year, low_thresh, up_thresh) {
   
-  if(missing(low.thresh)) {
+  if(missing(low_thresh)) {
     low.thresh <- 0
   }
-  if(missing(up.thresh)) {
+  if(missing(up_thresh)) {
     up.thresh <- 130
   }
   if(missing(site)) {
@@ -55,7 +55,7 @@ plot_pss_date <- function(dataset, day_one, site, year, low.thresh, up.thresh) {
        las=1, 
        xlab="", 
        ylab="", 
-       ylim=c(low.thresh, up.thresh))
+       ylim=c(low_thresh, up_thresh))
   
   par(new=TRUE)
   
