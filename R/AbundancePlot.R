@@ -44,7 +44,6 @@ plot_abundance <- function(dataset, day_one, site, year) {
   
   pdf(paste(getwd(), "Abundance by Day", site, year, ".pdf", 
             sep = ""), height = 10, width = 10)       
-  dev.new()
   par(mfrow = c(2, 1), 
       mar = c(0, 2, 0, 2), 
       oma = c(4, 2, 2, 2))
